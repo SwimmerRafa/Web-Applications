@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+       
+         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+
+        <!--Import Google Icon Font-->
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <!-- Compiled and minified CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        />
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alta de nadador</title>
+        <style type="text/css">
+        body, h1, h2, h3, h4, h5, p {
+            font-family: "Roboto", serif;
+        }
+        h1{
+            color: #10316b
+        }
+        h2, h3, h4, h6{
+            color: #000000
+        }
+        </style>
+    </head>
+
+    <body style="background-color: #dee1ec">
+        <div style="padding-left: 1rem; padding-right: 1rem;" class="w3-bar w3-black w3-mobile">
+            <a href="/" class="w3-bar-item w3-button w3-mobile">Home</a>
+            <a href="/lista-nadadores" class="w3-bar-item w3-button w3-right w3-mobile">Swimmers</a>
+        
+        </div>
+
+        <div style="padding-top: 2rem;" class="container">
+            <div class="row">
+                <form action= "/agregarNadador" method="POST" class="col s12">
+                    <div class="row">
+                        <div class="column">
+                            <h5>Swimmer Data</h5>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="nombre" type="text" name= "nombre" class="validate" />
+                            <label for="nombre">Nombre</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="edad" type="number" name= "edad" class="validate" />
+                            <label for="edad">Edad</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="pais" type="text" name= "pais" class="validate" />
+                            <label for="pais">Pais</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="estilo" type="text" name= "estilo" class="validate" />
+                            <label for="estilo">Estilo</label>
+                        </div>
+                    <button style="background-color: #446491;" class="btn waves-effect waves-light"type="Submit"> Submit <i class="material-icons right">send</i></button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

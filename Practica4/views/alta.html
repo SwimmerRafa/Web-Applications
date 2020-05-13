@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            h1 {
+                color: #0f117a;
+            }
+            h4 {
+                color: #446491;
+            }
+            h6 {
+                color: #4b89ac;
+            }
+        </style>
+
+        <!--Import Google Icon Font-->
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <!-- Compiled and minified CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        />
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alta de pacientes</title>
+    </head>
+
+    <body style="background-color: #e4fcf9;">
+        <div>
+            <nav>
+                <div style="background-color: #446491;" class="nav-wrapper">
+                    <a style="padding-left: 1rem;" href="#!" class="brand-logo"
+                        >Alta de pacientes</a
+                    >
+                    <a
+                        href="#"
+                        data-target="mobile-demo"
+                        class="sidenav-trigger"
+                        ><i class="material-icons">menu</i></a
+                    >
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/alta-paciente">Alta</a></li>
+                        <li><a href="/lista-pacientes">Lista de pacientes</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/alta-paciente">Alta</a></li>
+                <li><a href="/lista-pacientes">Lista de pacientes</a></li>
+            </ul>
+        </div>
+
+        <div style="padding-top: 2rem;" class="container">
+            <div class="row">
+                <form action= "/agregarPaciente" method="POST" class="col s12">
+                    <div class="row">
+                        <div class="column">
+                            <h5>Datos generales</h5>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="nombre" type="text" name= "nombre" class="validate" />
+                            <label for="nombre">Nombre</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="edad" type="number" name= "edad" class="validate" />
+                            <label for="edad">Edad</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <p>
+                                <label>
+                                    <p>Genero</p>
+                                    <input list="genero" name="genero">
+                                    <datalist id="genero">
+                                        <option value="Femenino">
+                                        <option value="Masculino">
+                                        <option value="Prefiero no decir">
+                                    </datalist>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="ss" type="number" name= "seguridad_social" class="validate" />
+                            <label for="ss">Seguridad social</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h5>Sintomas</h5>
+                        </div>
+                        <div class="col s6">
+                            <p>
+                                <label>
+                                    <p>Dolor de garganta</p>
+                                    <input list="dolGar" name="dolor_de_garganta">
+                                    <datalist id="dolGar">
+                                        <option value="Si">
+                                        <option value="No">
+                                    </datalist>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="col s6">
+                            <p>
+                                <label>
+                                    <p>Tos seca</p>
+                                    <input list="tosS" name= "tos_seca" >
+                                    <datalist id="tosS">
+                                        <option value="Si">
+                                        <option value="No">
+                                    </datalist>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="col s6">
+                            <p>
+                                <label>
+                                    <p>Fiebre</p>
+                                    <input list="fiebre" name="fiebre">
+                                    <datalist id="fiebre">
+                                        <option value="Si">
+                                        <option value="No">
+                                    </datalist>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="col s6">
+                            <p>
+                                <label>
+                                    <p>Dificultad para respirar</p>
+                                    <input list="difres" name="dificultad_para_respirar">
+                                    <datalist id="difres">
+                                        <option value="Si">
+                                        <option value="No">
+                                    </datalist>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <p>Comorbilidades</p>
+                        </div>
+                        <div class="col s6">
+                            <p>
+                                <label>
+                                    <p>Diabetes</p>
+                                    <input list="diabetes" name= "diabetes">
+                                    <datalist id="diabetes">
+                                        <option value="Si">
+                                        <option value="No">
+                                    </datalist>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="col s6">
+                            <p>
+                                <label>
+                                    <p>Hipertensión</p>
+                                    <input list="hiper" name= "hipertension">
+                                    <datalist id="hiper">
+                                        <option value="Si">
+                                        <option value="No">
+                                    </datalist>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="col s6">
+                            <p>
+                                <label>
+                                    <p>Sobrepeso</p>
+                                    <input list="sobrepeso" name="sobrepeso">
+                                    <datalist id="sobrepeso">
+                                        <option value="Si">
+                                        <option value="No">
+                                    </datalist>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+                    <button style="background-color: #446491;" class="btn waves-effect waves-light"type="Submit"> Añadir <i class="material-icons right">send</i></button>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function () {
+                var elems = document.querySelectorAll(".sidenav");
+                var instances = M.Sidenav.init(elems, null);
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                var elems = document.querySelectorAll("select");
+                var instances = M.FormSelect.init(elems, null);
+            });
+        </script>
+    </body>
+</html>

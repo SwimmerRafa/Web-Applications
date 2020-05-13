@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Usuarios</h2>
+        <ul>
+            <%usuarios.forEach((usuario)=>{%>
+                <li>ID: <%=usuario.id%> Nombre: <%=usuario.nombre%> Password: <%=usuario.password%> </li>
+            <%});%>
+        </ul>
+    </body>
+</html>

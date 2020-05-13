@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <title>Menu</title>
+
+    <style type="text/css">
+        body, h1, h2, h3, h4, h5, p {
+            font-family: "Roboto", serif;
+        }
+        h1{
+            color: #10316b
+        }
+        h2, h3, h4, h6{
+            color: #000000
+        }
+    </style>
+
+</head>
+<body id="home" style="background-color: #dee1ec">
+<div style="padding-left: 1rem; padding-right: 1rem;" class="w3-bar w3-black w3-mobile">
+    <a href="/" class="w3-bar-item w3-button w3-mobile">Home</a>
+    <a href="/alta-nadador" class="w3-bar-item w3-button w3-right w3-mobile">New Swimmer</a>
+    <a href="/lista-nadadores" class="w3-bar-item w3-button w3-right w3-mobile">Swimmers</a>
+    
+</div>
+
+<div class="w3-container w3-margin w3-mobile">
+    <h1 class="w3-center">World Simming </h1>
+    <h4 style="padding-left: 1rem;">
+        Professional Simming
+    </h4>
+    <h6 style="padding-left: 1rem;">
+        Swimming is an individual or team racing sport that requires the use of one's entire body to move through water. 
+        The sport takes place in pools or open water (e.g., in a sea or lake). Competitive swimming is one of the most popular 
+        Olympic sports, with varied distance events in butterfly, backstroke, breaststroke, freestyle, and individual medley.
+        In addition to these individual events, four swimmers can take part in either a freestyle or medley relay. A medley relay consists 
+        of four swimmers who will each swim a different stroke, ordered as backstroke, breaststroke, butterfly and freestyle.
+    </h6>
+    <br><br>
+    <div align="center" class="w3-container w3-margin w3-mobile">
+        <img class="mySlides" src="../img/caeleb.jpg">
+        <img class="mySlides" src="../img/penn.jpg">
+        <img class="mySlides" src="../img/ryan.jpg">
+    </div>
+
+
+
+</div>
+<script type="text/javascript">
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) {slideIndex = 1}
+        x[slideIndex-1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            h1 {
+                color: #0f117a;
+            }
+            h4 {
+                color: #446491;
+            }
+            h6 {
+                color: #4b89ac;
+            }
+            .mypadding {
+                padding: 1rem;
+            }
+        </style>
+
+        <!--Import Google Icon Font-->
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <!-- Compiled and minified CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        />
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lista de pacientes</title>
+    </head>
+
+    <body style="background-color: #e4fcf9;">
+        <div>
+            <nav>
+                <div style="background-color: #446491;" class="nav-wrapper">
+                    <a style="padding-left: 1rem;" href="#!" class="brand-logo"
+                        >Alta de pacientes</a
+                    >
+                    <a
+                        href="#"
+                        data-target="mobile-demo"
+                        class="sidenav-trigger"
+                        ><i class="material-icons">menu</i></a
+                    >
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/alta-paciente">Alta</a></li>
+                        <li><a href="/lista-pacientes">Lista de pacientes</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/alta-paciente">Alta</a></li>
+                <li><a href="/lista-pacientes">Lista de pacientes</a></li>
+            </ul>
+        </div>
+
+        <div style="overflow-x: auto;" class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="center-align mypadding">Nombre</th>
+                        
+                    </tr>
+                </thead>
+
+                <tbody>
+                    
+                    <%pacientes.forEach((paciente)=>{%>
+                        <tr>
+                            <td class="center-align mypadding"><%=paciente.nombre%></td>
+                            <td class="center-align mypadding"><%=paciente.edad%></td>
+                            <td class="center-align mypadding"><%=paciente.genero%></td>
+                            <td class="center-align mypadding"><%=paciente.seguridad_social%></td>
+                            <td class="center-align mypadding"><%=paciente.dolor_de_garganta%></td>
+                            <td class="center-align mypadding"><%=paciente.tos_seca%></td>
+                            <td class="center-align mypadding"><%=paciente.fiebre%></td>
+                            <td class="center-align mypadding"><%=paciente.dificultad_para_respirar%></td>
+                            <td class="center-align mypadding"><%=paciente.diabetes%></td>
+                            <td class="center-align mypadding"><%=paciente.hipertension%></td>
+                            <td class="center-align mypadding"><%=paciente.sobrepeso%></td>
+                        </tr>
+                    <%});%>
+                    
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function () {
+                var elems = document.querySelectorAll(".sidenav");
+                var instances = M.Sidenav.init(elems, null);
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                var elems = document.querySelectorAll("select");
+                var instances = M.FormSelect.init(elems, null);
+            });
+        </script>
+    </body>
+</html>

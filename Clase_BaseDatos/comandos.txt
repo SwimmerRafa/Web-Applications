@@ -1,0 +1,5 @@
+$ sudo service mysqld start
+$ mysql
+$ mysql -u root -P 3306 -p
+$ sudo mysql_secure_installation
+password: root

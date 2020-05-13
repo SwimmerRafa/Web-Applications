@@ -1,0 +1,14 @@
+{
+  "name": "ejemploproyecto1",
+  "version": "1.0.0",
+  "description": "node con express",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Rafael Moreno",
+  "license": "ISC"
+}
