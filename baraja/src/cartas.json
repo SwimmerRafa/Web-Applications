@@ -1,0 +1,14 @@
+{
+  "cartas": [
+    {
+      "mazo" : "corazones", 
+      "numero" : "1",
+      "valor" : "1"
+    },
+    {
+      "mazo" : "corazones", 
+      "numero" : "K",
+      "valor" : "10"
+    }
+    ]
+}
