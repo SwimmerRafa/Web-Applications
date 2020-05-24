@@ -2,14 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {cartas} from './cartas.json';
+import axios from "axios"
 import FormularioCarta from './components/formularioCarta.js';
 
 class App extends React.Component{
   constructor(){
     super();
     this.state={
-      cartas
+      cartas:[]
     }
+    this.agrgarCarta = this.agrgarCarta.bind(this)
   }
   
   tirarCarta(id){
@@ -17,6 +19,37 @@ class App extends React.Component{
       cartas: this.state.cartas.filter((e, i)=>{
         return i !== id
       })
+    })
+    //Comunique con el server
+    fetch("http://18.221.185.6:8081/carta", {
+      method: "POST",
+      body:JSON.stringify({
+        titulo: id,
+        mensaje: "Hola POST"
+      }),
+      headers:{
+        "Content-Type" : "application/json"
+      }
+    })
+  }
+  
+  agrgarCarta(carta){
+    this.setState({
+      cartas:[...this.state.cartas, carta]
+    })
+  }
+  
+  componentDidMount(){
+    /*fetch("http://18.221.185.6:8081/cartas")
+    .then(res=> res.json())
+    .then(resData =>{
+      this.setState(resData)
+    })*/
+    axios
+    .get("http://18.221.185.6:8081/cartas")
+    .then(result=>{
+      console.log(result.data.cartas)
+      this.setState(result.data)
     })
   }
   
@@ -50,7 +83,7 @@ class App extends React.Component{
                             </span>
           </a>
         </nav>
-        <FormularioCarta/>
+        <FormularioCarta onAgregarCarta={this.agrgarCarta}/>
         <div> 
           {cartasActuales}
         </div>
