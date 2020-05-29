@@ -1,61 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect, useReducer} from 'react';
+//import logo from './logo.svg';
 import './App.css';
 import {cartas} from './cartas.json';
 import axios from "axios"
-import FormularioCarta from './components/formularioCarta.js';
+import FormularioCarta from "./components/formularioCarta.jsx"
 
-class App extends React.Component{
-  constructor(){
-    super();
-    this.state={
-      cartas:[]
+function App() {
+  const cartas = []
+  
+  useEffect(() =>{
+    console.log("Effect componentDidMount!")
+  },[])
+  
+   useEffect(() =>{
+     if(state.jugador != ""){
+       console.log("Effect componentDidUpdate!")
+     }
+  },[])
+  
+  const cartasReducer = (state, action) =>{
+    switch(action.type){
+        case "PEDIR_CARTA":
+            return([
+                ...state, action.carta
+                ])
+        case "TIRAR_CARTA":
+            return state.filter((c)=> c!== action.carta)
+                
     }
-    this.agrgarCarta = this.agrgarCarta.bind(this)
   }
   
-  tirarCarta(id){
-    this.setState({
-      cartas: this.state.cartas.filter((e, i)=>{
-        return i !== id
-      })
-    })
-    //Comunique con el server
-    fetch("http://18.221.185.6:8081/carta", {
-      method: "POST",
-      body:JSON.stringify({
-        titulo: id,
-        mensaje: "Hola POST"
-      }),
-      headers:{
-        "Content-Type" : "application/json"
-      }
-    })
-  }
+  const [cartasC, dispatch] = useReducer(cartasReducer, [])
+  const cartaControlador = {mazo:"", valor: "", numero: 0}
+  const [state, setState] = useState(cartaControlador)
   
-  agrgarCarta(carta){
-    this.setState({
-      cartas:[...this.state.cartas, carta]
-    })
-  }
-  
-  componentDidMount(){
-    /*fetch("http://18.221.185.6:8081/cartas")
-    .then(res=> res.json())
-    .then(resData =>{
-      this.setState(resData)
-    })*/
-    axios
-    .get("http://18.221.185.6:8081/cartas")
-    .then(result=>{
-      console.log(result.data.cartas)
-      this.setState(result.data)
-    })
-  }
-  
-  render(){
-    console.log(this.state);
-    const cartasActuales = this.state.cartas.map((carta, i)=>{
+  const tirarCarta =  (mazo, numero, valor) =>{
+        dispatch({
+            type: "TIRAR_CARTA",
+            mazo,
+            numero,
+            valor
+        })
+    }
+    
+  const pedirCarta = (e) =>{
+        e.preventDefault()
+        
+        dispatch({
+            type: "PEDIR_CARTA"
+        })
+    }
+    const cartasActuales = cartas.map((carta, i)=>{
       return(
         <div className= "col-md-4" key={i}>
           <div className= "card mt-4">
@@ -68,7 +63,7 @@ class App extends React.Component{
               <h5>Valor: {carta.valor}</h5>
             </div>
             <div className="card-footer">
-              <button type="button" onClick={this.tirarCarta.bind(this, i)} className="btn btn-outline-danger">Tirar Carta</button>
+              <button type="button" onClick={tirarCarta(i)} className="btn btn-outline-danger">Tirar Carta</button>
             </div>
           </div>
         </div>
@@ -79,17 +74,16 @@ class App extends React.Component{
         <nav className = "navbar navbar-dark bg-dark">
           <a className = "navbar-brand" href="/">
             Número de Cartas <span className = "badge badge-pill badge-light">
-                                {this.state.cartas.length}
+                                {cartas.length}
                             </span>
           </a>
         </nav>
-        <FormularioCarta onAgregarCarta={this.agrgarCarta}/>
+        <FormularioCarta onAgregarCarta={pedirCarta}/>
         <div> 
           {cartasActuales}
         </div>
       </div>
     );
-  }
 }
 
 export default App;
